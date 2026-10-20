@@ -6,8 +6,6 @@ Design and simulation of an inset-fed microstrip patch antenna with a plus-shape
 
 A rectangular patch on a 1.6 mm FR-4 substrate is fed by a 3 mm microstrip line. A plus-shaped slot cut into the centre of the patch tunes the resonance, and a notch cut into the radiating edge around the feed (an inset feed) brings the input impedance close to 50 ohm, which gives the impedance match at 2.4 GHz.
 
-![3D model](images/model-3d-view.png)
-
 ## Design Specifications
 
 ### Materials
@@ -41,10 +39,6 @@ Fixed dimensions in the model:
 | Inset notch    | Depth l/6 (about 4.8 mm), 5 mm wide, leaving a 1 mm gap on each side of the feed |
 | Port position  | At the substrate edge, x = 19.5 mm                                 |
 
-![Antenna geometry](images/antenna-geometry.png)
-
-The drawing above was generated from the CST model parameters.
-
 ## Impedance Matching
 
 Matching is done in two ways:
@@ -72,8 +66,6 @@ The plus slot lengthens the current path on the patch, which shifts the resonanc
 
 S11 drops below -10 dB around 2.4 GHz, with a minimum of about -22 dB at the design frequency, so the antenna is well matched to 50 ohm in the Wi-Fi / ISM band. The response is narrow band, with a single sharp resonance and S11 close to 0 dB elsewhere in the 1.4 to 3.4 GHz sweep.
 
-![S11](images/s11-plot.png)
-
 ### Radiation Pattern
 
 Farfield directivity at 2.4 GHz (Phi = 90 cut):
@@ -87,28 +79,12 @@ Farfield directivity at 2.4 GHz (Phi = 90 cut):
 
 The pattern is broadside, as expected for a patch antenna, with a wide beam suitable for general purpose Wi-Fi coverage.
 
-![Radiation pattern](images/radiation-pattern.png)
-
 ## How to Run
 
 1. Open `simulation/Plus_Slot_MSA.cst` in CST Studio Suite 2025 or later.
 2. Start the time domain solver.
 3. Open 1D Results, then S-Parameters, and select S1,1 to view the return loss around 2.4 GHz.
 4. Change any parameter (for example the slot length or the inset geometry) in the parameter list and re-run to see how the match shifts.
-
-## Repository Structure
-
-```
-Plus-Slot-MSA/
-|-- README.md
-|-- simulation/
-|   `-- Plus_Slot_MSA.cst
-`-- images/
-    |-- model-3d-view.png
-    |-- antenna-geometry.png
-    |-- s11-plot.png
-    `-- radiation-pattern.png
-```
 
 ## Future Scope
 
